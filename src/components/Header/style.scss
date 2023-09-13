@@ -1,0 +1,123 @@
+@use '../base_styles/variables' as v;
+// HEADER AND HEADER_CONTENT
+header{
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color .5s ease;
+    &:hover{
+        background-color: v.$white;
+    }
+}
+
+.header_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    
+    // LOGO 
+    .logo-v1{
+        height: 3rem;
+        margin-left: 4%;
+    }
+}
+
+// NAV
+nav{
+    width: 100%;
+    height: 100%;
+    a{
+        color: v.$black;
+    }
+}
+.nav_list_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height:100%;
+    font-size: v.$fontsize_medium;
+    & > li:not(.sale){
+        box-shadow: inset 0 0 0 0 v.$black;
+        transition: box-shadow .25s ease-in-out;
+        &:hover{
+            box-shadow: inset 0 -3px 0 0 v.$black;
+        }
+    }
+    & > li{
+        height: 100%;
+        cursor: pointer;
+        
+        
+        a{ 
+            display: grid;
+            height: 100%;
+            place-items: center;
+            letter-spacing: .01em;
+        }
+    }
+}
+.sale {
+    position: relative;
+    display: flex;
+    box-shadow: inset 0 0 0 0 v.$light_green;
+    &:hover{
+        box-shadow: inset 0 -3px 0 0 v.$light_green;
+        ul{
+            opacity: 1;
+        }
+    }
+    & > a{
+        color: v.$light_green;
+    }
+    ul{
+        inset: 0;
+        position: absolute;
+        opacity: 0;
+        height: max-content;
+        display: flex;
+        gap: 1rem;
+        margin: auto auto auto 4rem;
+        padding-left: 1rem;
+        border-left: 1px solid #b4b4b4;
+        transition: opacity .25s linear;
+        
+        li a{
+            font-size: v.$fontsize_lit;
+            &:hover{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// HEADER_OPTIONS
+
+.header_options_container{
+    display: flex;
+    gap: 1rem;
+    margin-right: 4%;
+    .header_option{
+        position: relative;
+        width: 3rem;
+        height: 1.875rem;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        height: fit-content;
+        button{
+            border: none;
+            background: none;
+            width: 4.8rem;
+            height: 4rem;
+            &:hover{
+                cursor: pointer;
+            }
+            svg{
+                display: block;
+                color: v.$black;
+                height: 2rem;
+                width: 100%;
+            }
+        }
+    }
+}
